@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install python3-pip -y && pip3 install -r requirements.txt
+      run: sudo apt-get update && sudo apt-get install python3-pip -y && pip3 install -r requirements.txt && pip3 install awsebcli
     - name: Deploy app
       run: |
         eb init $EB_APP_NAME --platform python --region $AWS_REGION --quiet
