@@ -16,4 +16,4 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
-        ssh -i /Users/mabdurrafey/Desktop/PL/KeyPair.pem ec2-user@52.207.71.84 "cd /path/to/app && nohup python3 app.py &"
+        ssh -i "/Users/mabdurrafey/Desktop/PL/KeyPair.pem" ubuntu@ec2-52-207-71-84.compute-1.amazonaws.com "cd /path/to/app && nohup python3 app.py &"
