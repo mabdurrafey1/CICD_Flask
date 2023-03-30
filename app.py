@@ -2,6 +2,10 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return jsonify({"hello":"world"})
+
 @app.route('/check_overlap', methods=['POST'])
 def check_overlap():
     data = request.get_json()
