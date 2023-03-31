@@ -15,13 +15,13 @@
 
 from flask import Flask, request, jsonify
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/')
+@application.route('/')
 def index():
     return jsonify({"hello":"world"})
 
-@app.route('/check_overlap', methods=['POST'])
+@application.route('/check_overlap', methods=['POST'])
 def check_overlap():
     data = request.get_json()
     range1_start = data['range1']['start']
@@ -37,4 +37,4 @@ def check_overlap():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)
