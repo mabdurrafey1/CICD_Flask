@@ -1,40 +1,40 @@
-from flask import Flask
+# from flask import Flask
 
-application = Flask(__name__)
-
-
-@application.route("/")
-def hello():
-    """Hello word method."""
-    return "Hello Calvine - This is a one step!"
+# application = Flask(__name__)
 
 
-# run the app.
-if __name__ == "__main__":
-    application.run()
+# @application.route("/")
+# def hello():
+#     """Hello word method."""
+#     return "Hello Calvine - This is a one step!"
 
-# from flask import Flask, request, jsonify
 
-# app = Flask(__name__)
+# # run the app.
+# if __name__ == "__main__":
+#     application.run()
 
-# @app.route('/')
-# def index():
-#     return jsonify({"hello":"world"})
+from flask import Flask, request, jsonify
 
-# @app.route('/check_overlap', methods=['POST'])
-# def check_overlap():
-#     data = request.get_json()
-#     range1_start = data['range1']['start']
-#     range1_end = data['range1']['end']
-#     range2_start = data['range2']['start']
-#     range2_end = data['range2']['end']
+app = Flask(__name__)
 
-#     status= range1_start < range2_end and range1_end > range2_start
+@app.route('/')
+def index():
+    return jsonify({"hello":"world"})
+
+@app.route('/check_overlap', methods=['POST'])
+def check_overlap():
+    data = request.get_json()
+    range1_start = data['range1']['start']
+    range1_end = data['range1']['end']
+    range2_start = data['range2']['start']
+    range2_end = data['range2']['end']
+
+    status= range1_start < range2_end and range1_end > range2_start
     
-#     response = {
-#         'overlap': status
-#     }
-#     return jsonify(response)
+    response = {
+        'overlap': status
+    }
+    return jsonify(response)
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
